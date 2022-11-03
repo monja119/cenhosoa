@@ -1,0 +1,59 @@
+{% load static %}
+
+<div id='popup_fampianarana' class=" col-8 popup rounded" style="margin-top:-10.5%;height:99%;margin-left:16.5%;text-align:center">
+
+    <h2>
+        Fanampiana Fianarana - {{ name }}
+    </h2>
+    <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+        <input type="hidden" name="type" value="fampianarana">
+        <br>
+        <input type="text" name="title" placeholder="Lohateny" style="text-align:center">
+        <br>
+        <br>
+        <textarea cols="50" rows="8" name="content" id="content" aria-multiline="true">
+        </textarea>
+        <br>
+        <br>
+        <input type="button" value="Manafoana" onclick="manafoana('popup_fampianarana')" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+        <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+    </form>
+    <br>
+    <br>
+</div>
+
+<div class="container-fluid mb-5 rounded" id="content-asa" style="border:none;">
+    <div class="row mb-4 mt-4 justify-content-center" >
+        <input type="button" onclick="popup('popup_fampianarana')" value="Hanampy" class="btn" style="font-size:26px;background-color:{{ secondary_color }}">
+    </div>
+    <div class="row">
+        <div class="col-1 rounded" id="left-fampianarana">
+            .
+        </div>
+    </div>
+
+    {% for content in fampianarana %}
+        <div class="row">
+            <div id="{{ content.id }}" onclick="display_content('{{ content.id }}', 'content_{{ content.id }}')"  class="col-8 mb-1 content-fampianarana">
+               <mark class="rounded-circle col-1" style="background-color: rgba(200, 200, 200, 0.5);">
+               </mark>
+                <h3 style="text-align:center;margin-top:-3%;position:absolute" class="col-9" >
+                   {{ content.title }}
+                </h3>
+                <h5 style="float:right" class="col-2">
+                    {{ content.date }}
+                </h5>
+                <br><br>
+                <p id="content_{{ content.id }}" style="visibility:hidden;color:black">
+                    {{ content.content }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script type='text/javascript' src="{% static '/js/sudo.js' %}">
+</script>

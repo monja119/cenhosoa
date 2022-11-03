@@ -1,0 +1,149 @@
+{
+  "dorkasy": {
+      "name": "Dorkasy",
+      "sudo": 2,
+      "famariparitana": "blablabla",
+      "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafond"
+      },
+      "organigramme": {
+        "filoha": {
+          "name": "Monja",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },
+        "birao": {
+          "name": "Njamo",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },"filohaa": {
+          "name": "Monja",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },
+        "biraao": {
+          "name": "Njamo",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },"fialoha": {
+          "name": "Monja",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },
+        "birsao": {
+          "name": "Njamo",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },"filsoha": {
+          "name": "Monja",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },
+        "bdirao": {
+          "name": "Njamo",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },"filofha": {
+          "name": "Monja",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        },
+        "birgao": {
+          "name": "Njamo",
+          "picture": "/app/static/images/sampana/identite/pc.png"
+        }
+      },
+      "couverture": "/app/static/images/sampana/couverture/dorkasy.jpg",
+      "logo": "static/images/sampana/dorkasy.jpg"
+  },
+  "safif": {
+    "name": "Sampana Fifohazana",
+    "sudo"  : 2,
+    "famariparitana": "blablabla",
+    "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafon"
+      },
+    "organigramme": {
+
+    },
+    "couverture": "/app/static/images/sampana/couverture/safif.jpeg",
+    "logo": "app/static/images/sampana/safif.jpeg"
+  },
+  "sampati": {
+    "name": "sampati",
+    "sudo"  : 2,
+    "famariparitana": "blablabla",
+    "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafon"
+      },
+    "organigramme": {
+
+    },
+    "couverture": "/app/static/images/sampana/couverture/sampati.jpeg",
+    "logo": "app/static/images/sampana/sampati.kpeg"
+  },
+  "sa": {
+    "name": "sekoly alahady",
+    "sudo"  : 2,
+    "famariparitana": "blablabla",
+    "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafon"
+      },
+    "organigramme": {
+
+    },
+    "couverture": "/app/static/images/sampana/couverture/sa.jpg",
+    "logo": "app/static/images/sampana/sa.jpg"
+  },
+  "slk": {
+    "name": "Sampana Lehilahy Kristianina",
+    "sudo"  : 2,
+    "famariparitana": "blablabla",
+    "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafon"
+      },
+    "organigramme": {
+
+    },
+    "couverture": "/app/static/images/sampana/couverture/slk.jpg",
+    "logo": "app/static/images/sampana/slk.jpg"
+  },
+  "svm": {
+    "name": "Sampana Vokovok Manga",
+    "sudo"  : 2,
+    "famariparitana": "blablabla",
+    "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafon"
+      },
+    "organigramme": {
+
+    },
+    "couverture": "/app/static/images/sampana/couverture/svm.jpg",
+    "logo": "app/static/images/sampana/svm.jpg"
+  },
+  "stk": {
+    "name": "Sampana Tanora Kristianina",
+    "sudo"  : 2,
+    "famariparitana": "blablabla",
+    "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafon"
+      },
+    "organigramme": {
+
+    },
+    "couverture": "/app/static/images/sampana/couverture/stk.jpg",
+    "logo": "app/static/images/sampana/stk.jpg"
+  },
+  "vfl": {
+    "name": "Vondrona Fototra Lahiaka",
+    "sudo"  : 2,
+    "famariparitana": "blablabla",
+    "asa": {
+        "carreau": "bla bla crreau",
+        "plafond": "plafon plafon"
+      },
+    "organigramme": {
+
+    },
+    "couverture": "/app/static/images/sampana/couverture/vfl.jpg",
+    "logo": "app/static/images/sampana/vfl.jpg"
+  }
+}

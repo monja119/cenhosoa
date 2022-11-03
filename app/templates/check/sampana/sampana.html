@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width;">
+    <title>Admin - {{ name|upper }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        .scroll-tab:hover{
+            background-color: rgba(0, 0, 250, 0.5);
+        }
+        .scroll-tab{
+            cursor:pointer;
+        }
+        .scroll-img{
+            width:12px;
+            margin-left:5px;
+            height:20px;
+            transform:rotate(90deg);
+        }
+
+    </style>
+</head>
+
+<body style="background-image:url({% static 'images/sky.jpg' %});" id="body">
+    <input id="url" type="hidden" value="sampana">
+    <div class="container-fluid justify-content-center" style="background-color: rgba(0, 0, 250, 0.4);height:auto; animation-name:appear;animation-duration:2s" >
+        <h3 class="row justify-content-center" style="padding-top:2%">
+            Admin - {{ name|upper }}
+        </h3>
+        <h3 class="row row" style="padding-top:2%">
+            <div class="col-4 scroll-tab" onclick="sudo('sampana', 'ankapobeny', {{ id|safe }} )  ">
+                <h3 style="text-align:center">
+                    Ankapobeny
+                    <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+                </h3>
+            </div>
+            <div class="col-4 scroll-tab" onclick="sudo('sampana', 'asa', {{ id|safe }} )">
+                <h3 style="text-align:center">
+                    Asa
+                    <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+                </h3>
+
+            </div>
+            <div class="col-4 scroll-tab" onclick="sudo('sampana', 'fampianarana', {{ id|safe }} )">
+                <h3 style="text-align:center">
+                    Fampianarana
+                    <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+                </h3>
+
+            </div>
+        </h3>
+    </div>
+
+
+    <input type="hidden" id="view_sudo" value="{{ view }}">
+    <input type="hidden" id="id_sudo" value="{{ sudo.id }}">
+    <section id="content-sudo">
+
+    </section>
+
+
+    <script type='text/javascript' src="{% static '/js/sudo.js' %}">
+    </script>
+
+</body>
+</html>

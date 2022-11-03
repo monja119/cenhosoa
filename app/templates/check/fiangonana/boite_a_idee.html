@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="container-fluid">
+        <div class="row p-4 mt-1 rounded fandaharana justify-content-center" id="content_boite_a_idee" style="min-height:175px;color:black">
+            <div class="col-2"></div>
+            <div class="col-8 rounded blink "
+                 style="border: 1px solid black;background-color: white;text-align:center;">
+                <br>
+                <h2>
+                    Alatsaho ny hevitrao
+                </h2>
+                <form method="POST" action="{% url 'boite_a_idee' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+                    <input type="hidden" name="type" value="boite_a_idee">
+                    <br>
+                    <input type="email" name="mailaka" placeholder="Mailaka anao" style="text-align:center;width:65%" required>
+                    <br>
+                    <br>
+                    <textarea cols="50" rows="8" name="content" id="content" aria-multiline="true" required>
+                    </textarea>
+                    <br>
+                    <br>
+                    <input type="submit" value="Handefa" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+                </form>
+                <br>
+                <br>
+            </div>
+            <div class="col-2"></div>
+        </div>
+</div>
+<script type='text/javascript' src="{% static '/js/sudo.js' %}">
+</script>

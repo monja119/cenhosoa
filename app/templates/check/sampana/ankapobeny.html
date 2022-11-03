@@ -1,0 +1,174 @@
+{% load static %}
+
+<script type='text/javascript' src="{% static '/js/sudo.js' %}">
+</script>
+
+
+<div id='popup_sary' class=" col-8 rounded" hidden style="margin-top:-10.5%;height:99%;margin-left:16.5%;text-align:center">
+    <h2>
+        Fanovana Sary
+    </h2>
+    <img style="width:40%;height:40%;" class="rounded-circle" alt="{{ name }}" src="{{ couverture }}">
+    <br>
+    <br>
+    <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+        <input type="hidden" name="type" value="sary">
+        <p>
+            Sary :
+            <input type="file" name="picture" id="file" accept="image/*">
+        </p>
+        <br>
+        <p>
+            Na Hampiditra Rohy
+        </p>
+        <input type="text" class="rounded" name="url" style="width:300px;height:50px;border:1px solid {{ secondary_color }}">
+        <br>
+        <br>
+        <input type="button" value="Manafoana" onclick="manafoana('popup_sary')" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+        <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+    </form>
+    <br>
+    <br>
+</div>
+
+<div id='popup_famariparitana' class=" col-8 rounded" hidden style="margin-top:-10.5%;height:99%;margin-left:16.5%;text-align:center">
+    <h2>
+        Famariparitana
+    </h2>
+    <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+        <input type="hidden" name="type" value="famaritana">
+
+        <textarea cols="50" rows="10" name="famariparitana" id="famariparitana" aria-multiline="true">
+        </textarea>
+        <br>
+        <br>
+        <input type="button" value="Manafoana" onclick="manafoana('popup_famariparitana')" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+        <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+    </form>
+    <br>
+    <br>
+</div>
+<div id='popup_rafitra' class=" col-8 rounded" hidden style="margin-top:-10.5%;height:99%;margin-left:16.5%;text-align:center">
+    <h2>
+        Fampidirana Olona
+    </h2>
+    <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+        <input type="hidden" name="type_rafitra" value="sampana">
+        <input type="hidden" name="type" value="rafitra">
+        <br>
+        <br>
+
+        <input type="text" placeholder="Anarana" class="rounded" name="name" style="text-align:center;width:400px;height:50px;border:1px solid {{ secondary_color }}">
+        <br>
+        <br>
+
+        <input type="text" placeholder="Andraikatra" class="rounded" name="function" style="text-align:center;width:400px;height:50px;border:1px solid {{ secondary_color }}">
+        <br>
+        <br>
+        <p>
+            Sary :
+            <input type="file" name="picture" id="sary" accept="image/*">
+        </p>
+
+        <p>
+            Na Hampiditra Rohy
+        </p>
+        <input type="text" class="rounded" name="url" style="width:300px;height:50px;border:1px solid {{ secondary_color }}">
+        <br>
+        <br>
+
+        <br>
+        <br>
+        <input type="button" value="Manafoana" onclick="manafoana('popup_rafitra')" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+        <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+    </form>
+    <br>
+    <br>
+</div>
+
+<div class="container-fluid mb-5 rounded" id="content-sampana" style="border:none">
+    <div class="row "></div>
+    <div class="row"></div>
+    <div class="row mt-5 justify-content-center">
+        <h2>
+            {{ sampana.name|upper }}
+        </h2>
+    </div>
+
+    <div class="row" ></div>
+    <div class="row mt-5 justify-content-center ">
+        <div class="col-12 justify-content-center" style="text-align:center">
+            <img style="width:500px;height:500px;" class="rounded-circle" alt="{{ name }}" src="{{ couverture }}">
+            <br>
+            <br>
+            <br>
+
+            {% if sampana_user is True %}
+                <input type="button"
+                       value="Hanova"
+                       class="btn-danger rounded"
+                       style="width:100px;"
+                       onclick="popup('popup_sary')">
+                <br>
+            {% endif %}
+            <br>
+            <h4 style="text-align:center;">
+                Famariparitana : {{ famariparitana }}
+            </h4>
+            <br>
+            {% if sampana_user is True %}
+                <input type="button" value="Hanova" onclick="popup('popup_famariparitana')" class="btn-danger rounded" style="width:100px;">
+            {% endif %}
+            <br>
+        </div>
+    </div>
+    <div class="row mt-3"></div>
+    <div class="row ">
+        <div class="col-12">
+            <h1 style="text-align:center;text-decoration:underline">
+                RAFITRA
+            </h1>
+        </div>
+    </div><div class="row mt-5"></div>
+    <div class="row col-12 justify-content-center" style="text-align:center">
+        {% if rafitra == 'Mbola tsisy' %}
+            <h4>
+                {{ rafitra }}
+            </h4>
+            <br>
+        {% else %}
+            <ul style="text-align:center">
+            {% for data in rafitra %}
+                <li style="list-style: none;display:inline-block; width:300px;text-align:center;word-break:break-all;margin-top:10px">
+                    <b>
+                        {{ data.function }}
+                    </b>
+                    <br>
+                    <br>
+                    <img src="{{ data.picture }}" class="rounded-circle" style="width:200px;height:200px">
+                    <br>
+                    {{ data.name }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <br>
+    </div>
+    <div class="row mt-5"></div>
+    {% if sampana_user is True %}
+        <div class="row mt-5">
+            <input type="button" value="Hanova"  onclick="popup('popup_rafitra')" class="btn-danger rounded" style="width:100px;margin-left:47%">
+        </div>
+    {% endif %}
+</div>
+ <script type='text/javascript' src="{% static '/js/popup.js' %}">
+ </script>

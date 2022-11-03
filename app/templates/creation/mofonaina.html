@@ -1,0 +1,23 @@
+{% load static %}
+        <div class="container-fluid">
+            <div class="row justify-content-center mt-3">
+                <h1>
+                    Mofonaina Vaovao
+                </h1>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <div class="col-11 rounded" style="text-align:center;background-color:{{ secondary_color }}">
+                    <form action="{% url 'mofonaina_vao' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <br><br>
+                        {{ form.title }}
+                        <br><br>
+                        {{ form.content }}
+                        <br><br>
+                        <input type="submit" value="Publier" class="btn" style="background-color:{{ primary_color }}; width:100px">
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+<br><br>

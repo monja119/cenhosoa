@@ -1,0 +1,133 @@
+{% load static %}
+<input id="url" type="hidden" value="mofonaina">
+
+<div id='popup_mofonaina' class=" col-8 rounded" style="animation-name:none;margin-top:-10.5%;height:99%;margin-left:16.5%;text-align:center">
+    <h2>
+        Fanampiana Mofonaina
+    </h2>
+    <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="sudo_name" value="pasteur">
+        <input type="hidden" name="type" value="mofonaina">
+        <br>
+        <input type="text" name="title" placeholder="Lohateny" style="text-align:center">
+        <br>
+        <br>
+        <textarea cols="50" rows="8" name="content" id="content" aria-multiline="true">
+        </textarea>
+        <br>
+        <br>
+        <input type="button" value="Manafoana" id="manafoana" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+        <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+    </form>
+    <br>
+    <br>
+</div>
+
+<div class="container-fluid mb-5" id="espace-pasteur">
+    <div class="row">
+        {% if pasteur is not False %}
+            <div   class="col-2 bg-primary;">
+                <a   id="btn-plus" style="cursor: pointer;">
+                    <img src="{% static 'images/tab/plus.png' %}" class="rounded-circle"
+                         style="background:{{ secondary_color }};padding:10px;margin-top:15%;width:50px;height:50px;"
+                         alt="mofonaina vao">
+                </a>
+                <a  style="cursor: pointer;" onclick="goto('stream', 'stream', 'null', 'live_video')">
+                    <img src="{% static 'images/tab/play.png' %}" class="rounded"
+                         style="background:{{ secondary_color }};padding:10px;margin-top:15%;width:50px;height:50px;"
+                         alt="live">
+                </a>
+            </div>
+        {% endif %}
+        <div class="col-10 rounded-circrle mt-3" >
+            <h1 style="text-align:center">
+                MOFONAINA
+            </h1>
+        </div>
+    </div>
+
+    <div id="live_video_content" class="row mt-2">
+        <div class="col-1 rounded">
+
+        </div>
+        <div class="col-10 bg-primary" id="live_video">
+
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+
+    {% for mofonaina in mofonainas %}
+
+        <div hidden id='popup_mofonaina_manitsy_{{ mofonaina.id }}'
+             class=" col-8 rounded mofonaina update"
+             style="background-color:black;margin-top:-15.5%;height:99%;margin-left:16.5%;text-align:center">
+            <h2>
+                Fanitsiana Mofonaina
+            </h2>
+                <input type="hidden" name="" value="pasteur">
+                <br>
+                <input type="text" id="title_{{ mofonaina.id }}" value="{{ mofonaina.title }}" style="text-align:center">
+                <br>
+                <br>
+                <textarea cols="50" rows="8" id="content_fanitsiana_{{ mofonaina.id }}">
+
+                     {{ mofonaina.content }}
+
+                </textarea>
+                <br>
+                <br>
+                <input type="button" value="Manafoana"
+                       onclick="manafona_mofonaina_fanitsiana('popup_mofonaina_manitsy_{{ mofonaina.id }}')"
+                       class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+                <input type="button"
+                       onclick="update('mofonaina', 'null', '{{ mofonaina.id }}')"
+                       value="Manamafy"
+                       class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+            <br>
+            <br>
+        </div>
+
+        <div id="{{ mofonaina.id }}"
+             onclick="display_mofonaina('{{ mofonaina.id }}', 'content_{{ mofonaina.id }}', 'loko_{{ mofonaina.id }}')"
+             class="row mt-2 m-1 rounded mofonaina_container">
+            <div class="row ml-2 mt-2" style="width:100%;">
+                <div class="col-6" >
+                        <select class="btn" id="loko_{{ mofonaina.id }}" style="z-index:5;" hidden>
+                            <option selected> Fotsy </option>
+                            <option> Mainty </option>
+                        </select>
+                        {% if pasteur is not False %}
+                            <input type="button" onclick="display_mofonaina_fanitsiana('popup_mofonaina_manitsy_{{ mofonaina.id }}')"
+                                   class="btn" value="Manitsy" style="background-color: {{ secondary_color }};border:none">
+                            <input type="button"
+                                   onclick="remove('mofonaina', 'null','{{ mofonaina.id}}')"
+                                   class="btn" value="Mamafa" style="background-color: {{ secondary_color }};border:none">
+                        {% endif %}
+                </div>
+                <div class="col-5">
+                    <i style="float:right;">
+                        {{ mofonaina.date}}
+                    </i>
+                </div>
+            </div>
+            <div class="row ml-1 mt-2 justify-content-center" style="width:100%;">
+                <div class="col-12" >
+                    <h1 style="text-align:center">
+                        {{ mofonaina.title }}
+                    </h1>
+                </div>
+            </div>
+            <div class="row ml-1 mt-2 justify-content-center" style="width:100%;">
+                <div class="col-12" id="content_{{ mofonaina.id }}"  hidden style="width:100%;white-space: pre-wrap; overflow-wrap: break-word">
+                        {{ mofonaina.content }}
+                </div>
+            </div>
+        </div>
+     {% endfor %}
+</div>
+
+<script type='text/javascript' src="{% static '/js/main.js' %}">
+</script>

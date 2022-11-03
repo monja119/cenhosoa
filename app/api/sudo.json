@@ -1,0 +1,42 @@
+{
+    "pasteur": {
+        "id": 2,
+        "authorised": {}
+    },
+    "safif": {
+        "id": 0,
+        "authorised": {}
+    },
+    "sampati": {
+        "id": 0,
+        "authorised": {}
+    },
+    "sa": {
+        "id": 0,
+        "authorised": {}
+    },
+    "slk": {
+        "id": 3,
+        "authorised": {}
+    },
+    "stk": {
+        "id": 0,
+        "authorised": {}
+    },
+    "svm": {
+        "id": 0,
+        "authorised": {}
+    },
+    "vfl": {
+        "id": 0,
+        "authorised": {}
+    },
+    "dorkasy": {
+        "id": 1,
+        "authorised": {}
+    },
+    "vaovao": {
+        "id": 3,
+        "authorised": {}
+    }
+}

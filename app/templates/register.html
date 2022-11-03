@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" content="width=device-width">
+        <title>
+            FJKM CENHOSOA - FISORATANA ANARANA
+        </title>
+        <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+    </head>
+    <body style="background-image: url({% static 'images/mR.jpeg' %})">
+        <div class="container-fluid">
+            <div class="row justify-content-center mt-5">
+                <h1>
+                    FISORATANA ANARANA
+                </h1>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <p style="color:red">
+                    {{ error_msg }}
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10 p-5 pl-5 mb-5 rounded" style="background-color:{{ secondary_color }}; width:100%">
+
+                        <form style="text-align:center" method="POST" action="{% url 'register' %}" class="ml-5" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <h4>
+                                Anarana :
+                            </h4>
+                                {{ form.name }}
+                            <br>
+                            <br>
+                            <h4>
+                                Laharana Finday :
+                            </h4>
+                            {{ form.tel }}
+                            <br>
+                            <br>
+
+                            <h4>
+                                Teny Miafina :
+                            </h4>
+                            {{ form.password }}
+                            <br>
+                            <br>
+                            <h4>
+                                Avereno:
+                            </h4>
+                                <input type="text" name="repeate" style="margin-top:15px">
+                            <br>
+                            <br>
+                            <input type="submit" value="OK" class="btn" style="width: 200px;border:1px solid black">
+                            <br><br>
+                            <a href="{% url 'auth' %}">
+                                Efa Manana Kaonty
+                            </a>
+                        </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

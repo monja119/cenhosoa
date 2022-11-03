@@ -1,0 +1,88 @@
+{% load static %}
+
+<div id='popup_asa' class=" col-8 popup rounded" style="margin-top:-10.5%;height:99%;margin-left:16.5%;text-align:center">
+
+    <h2>
+        Fanampiana Asa - {{ sampana.name }}
+    </h2>
+    <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+        <input type="hidden" name="type" value="asa">
+        <br>
+        <input type="text" name="title" placeholder="Lohateny" style="text-align:center">
+        <br>
+        <br>
+        <textarea cols="50" rows="8" name="content" id="content" aria-multiline="true">
+        </textarea>
+        <br>
+        <br>
+        <input type="button" value="Manafoana" onclick="manafoana('popup_asa')" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+        <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+    </form>
+    <br>
+    <br>
+</div>
+
+<div class="container-fluid mb-5 rounded" id="content-asa" style="border:none;">
+    <div class="row mb-4 mt-4 justify-content-center" >
+        <input type="button" onclick="popup('popup_asa')" value="Hanampy" class="btn" style="font-size:26px;background-color:{{ secondary_color }}">
+    </div>
+    <div class="row">
+        <div class="col-1 rounded" id="left-bar-fin">
+        </div>
+    </div>
+
+    {% for content in data %}
+        {% if content.float == 'left' %}
+                <div class="row " >
+                    <div class="col-1 rounded">
+                    </div>
+                    <div id="{{ content.asa.id }}" onclick="display_content('{{ content.asa.id }}', 'content_{{ content.asa.id }}')"  class="col-5 asa-plaque" style="border-radius: 50px 0px 0px 50px;word-break:break-all;">
+
+                        <h5 style="font-size:20px;margin-top:20px;position:absolute">
+                            {{ content.asa.date }}
+                        </h5>
+                        <h3 style="text-align:center;margin-top:3%">
+                            {{ content.asa.title }}
+                        </h3>
+                        <mark
+                                class="rounded-circle"
+                                style="float:right; margin-top: -20px;margin-right: -20px;background-color:rgba(250, 250,250, 0.7)">
+
+                        </mark>
+                        <p id="content_{{ content.asa.id }}" style="visibility:hidden;white-space: pre-wrap; overflow-wrap: break-word">
+                            {{ content.asa.content }}
+                        </p>
+                    </div>
+                </div>
+
+        {% else %}
+
+            <div class="row">
+                <div class="col-6 rounded">
+                </div>
+                <div id="{{ content.asa.id }}" onclick="display_content('{{ content.asa.id }}', 'content_{{ content.asa.id }}')" class="col-5 asa-plaque" style="border-radius:0px 50px  50px 0px; ">
+                    <h5 style="font-size:20px;float:right;margin-top:20px">
+                        {{ content.asa.date }}
+                    </h5>
+                    <h3 style="text-align:center;margin-top:3%">
+                        {{ content.asa.title }}
+                    </h3>
+                    <mark
+                            class="rounded-circle"
+                            style="float:left;margin-top:-5%;margin-left: -20px;background-color:rgba(250, 250,250, 0.7);position:absolute;">
+
+                    </mark>
+                    <p id="content_{{ content.asa.id }}" style="visibility:hidden">
+                        {{ content.asa.content }}
+                    </p>
+                </div>
+                </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+
+<script type='text/javascript' src="{% static '/js/sudo.js' %}">
+</script>

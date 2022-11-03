@@ -1,0 +1,154 @@
+{% load static %}
+<input id="url" type="hidden" value="{{ url }}">
+<input id="url_id" type="hidden" value="content-sampana">
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+        <div class="col-4 tab-sampana" onclick="link('sampana/dorkasy/', 'SAMPANA - DORKASY')"
+             style="background-image: url({% static 'images/sampana/dorkasy.jpg' %});" >
+            <div class="cover-sampana">
+                DORKASY
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/safif/', 'SAMPANA - SAFIF')" style="background-image: url({% static 'images/sampana/safif.jpeg' %});">
+            <div class="cover-sampana">
+                SAFIF
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/sampati/', 'SAMPANA - SAMPATI')" style="background-image: url({% static 'images/sampana/sampati.jpeg' %});">
+            <div class="cover-sampana">
+                SAMPATI
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center;">
+        <div class="col-4 tab-sampana" onclick="link('sampana/sa/', 'SAMPANA - SEKOLY ALAHADY')" style="background-image: url({% static 'images/sampana/sa.jpg' %});">
+            <div class="cover-sampana">
+                SEKOLY ALAHADY
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/slk/', 'SAMPANA - SLK')" style="background-image: url({% static 'images/sampana/slk.jpg' %});">
+            <div class="cover-sampana">
+                SLK
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/svm/', 'SAMPANA - SVM')" style="background-image: url({% static 'images/sampana/svm.jpg' %});">
+            <div class="cover-sampana">
+                SVM
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center; ">
+        <div class="col-1">
+        </div>
+        <div class="col-5 tab-sampana" onclick="link('sampana/stk/', 'SAMPANA - STK')" style="background-image: url({% static 'images/sampana/stk.jpg' %});">
+            <div class="cover-sampana">
+                STK
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/vfl/', 'SAMPANA - VFL')" style="background-image: url({% static 'images/sampana/vfl.jpg' %});">
+            <div class="cover-sampana">
+                VFL
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    </div>
+    <div class="row">
+    </div>
+</div>
+
+<div id="content-sampana" class="mb-5 mt-5 container-fluid justify-content-center" style="background-color: rgba(0, 0, 250, 0.4);height:auto; animation-name:appear;animation-duration:2s;border:none" >
+    <h3 class="row justify-content-center" style="padding-top:2%">
+        {{ sampana.name|upper }}
+    </h3>
+    <h3 class="row row" style="padding-top:2%">
+        <div class="col-4 scroll-tab"  onclick="goto('sampana', 'ankapobeny', {{ sampana.id }}, 'content-context' )">
+            <h3 style="text-align:center">
+                Ankapobeny
+                <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+            </h3>
+        </div>
+        <div class="col-4 scroll-tab" onclick="goto('sampana', 'asa', {{ sampana.id }}, 'content-context' )">
+            <h3 style="text-align:center">
+                Asa
+                <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+            </h3>
+
+        </div>
+        <div class="col-4 scroll-tab" onclick="goto('sampana', 'fampianarana', {{ sampana.id }}, 'content-context' )">
+            <h3 style="text-align:center">
+                Fampianarana
+                <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+            </h3>
+
+        </div>
+    </h3>
+</div>
+
+
+<section id="content-context" class="mb-5">
+
+    <script type='text/javascript' src="{% static '/js/sudo.js' %}"></script>
+    <div class="container-fluid mb-5 rounded" style="border:none">
+        <div class="row "></div>
+        <div class="row"></div>
+        <div class="row mt-5 justify-content-center">
+            <h2>
+                {{ sampana.name|upper }}
+            </h2>
+        </div>
+
+        <div class="row" ></div>
+        <div class="row mt-5 justify-content-center ">
+            <div class="col-12 justify-content-center" style="text-align:center">
+                <img style="width:500px;height:500px;" class="rounded-circle" alt="{{ name }}" src="{{ couverture }}">
+                <br>
+                <br>
+                <br>
+
+                <h4 style="text-align:center;">
+                    {{ famariparitana }}
+                </h4>
+                <br>
+            </div>
+        </div>
+        <div class="row mt-3"></div>
+        <div class="row ">
+            <div class="col-12">
+                <h1 style="text-align:center;text-decoration:underline">
+                    RAFITRA
+                </h1>
+            </div>
+        </div><div class="row mt-5"></div>
+        <div class="row col-12 justify-content-center" style="text-align:center">
+            {% if rafitra == 'Mbola tsisy' %}
+                <h4>
+                    {{ rafitra }}
+                </h4>
+                <br>
+            {% else %}
+                <ul style="text-align:center">
+                {% for data in rafitra %}
+                    <li style="list-style: none;display:inline-block; width:300px;text-align:center;word-break:break-all;margin-top:10px">
+                        <b>
+                            {{ data.function }}
+                        </b>
+                        <br>
+                        <br>
+                        <img src="{{ data.picture }}" class="rounded-circle" style="width:200px;height:200px">
+                        <br>
+                        {{ data.name }}
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            <br>
+        </div>
+        <div class="row mt-5"></div>
+    </div>
+</section>
+
+<script type='text/javascript' src="{% static '/js/main.js' %}"></script>

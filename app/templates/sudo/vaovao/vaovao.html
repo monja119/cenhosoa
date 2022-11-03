@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" content="width=device-width;">
+        <title id="title">
+            Admin - vaovaom-piangonana
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body  style="background-image:url({% static 'images/sky.jpg' %});" id="body">
+        <input id="url" type="hidden" value="vaovao">
+
+        <div id="vaovao" class="container-fluid justify-content-center" style="background-color: rgba(0, 0, 250, 0.4);height:auto; animation-name:appear;animation-duration:2s" >
+            <div class="row justify-content-center" style="padding-top:2%">
+                Admin - VAOVAOM-MPIANGONANA
+            </div>
+            <div class="row" style="padding-top:2%">
+                <div class="col-2">
+
+                        <input type="text" id="year" maxlength="4" minlength="4" placeholder="2022" class="date-vaovao" style="text-align:center;width:60px;margin-left:-10px;border-radius:15px 0px 0px 15px">
+                        <input type="text" id="month" maxlength="2" minlength="2" placeholder="11" class="date-vaovao" style="text-align:center;width:40px;margin-left:-5px">
+                        <input type="text" id="day" maxlength="2" minlength="2" placeholder="20" class="date-vaovao"
+                               style="text-align:center;width:40px;margin-left:-5px;border-radius:0px 15px 15px 0px;">
+                        <input id="search_date" type="button"
+                            style="border:none;height: 30px;text-align:center;width:50px;margin-left:-5px;border-radius: 15px;font-size: 17px;" value="GO">
+
+                </div>
+                <div class="col-10" >
+                    <select style="border: 1px solid black;border:none;" class="rounded">
+                        <option class="vaovao" selected>
+                            <h3>
+                                Farany (n)
+                            </h3>
+                        </option>
+                        <option class="vaovao">
+                            <h3>
+                                Lohateny (n)
+                            </h3>
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <input type="hidden" id="view_sudo" value="{{ view }}">
+        <input type="hidden" id="id_sudo" value="{{ id }}">
+        <section id="content-sudo">
+
+        </section>
+        <script type='text/javascript' src="{% static '/js/sudo.js' %}">
+        </script>
+    </body>
+</html>
+

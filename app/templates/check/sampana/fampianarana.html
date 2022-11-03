@@ -1,0 +1,32 @@
+{% load static %}
+
+
+<div class="container-fluid mb-5 rounded" id="content-asa" style="border:none;">
+    <div class="row">
+        <div class="col-1 rounded" id="left-fampianarana">
+            .
+        </div>
+    </div>
+
+    {% for content in fampianarana %}
+        <div class="row">
+            <div id="{{ content.id }}" onclick="display_content('{{ content.id }}', 'content_{{ content.id }}')"  class="col-8 mb-1 content-fampianarana">
+               <mark class="rounded-circle col-1" style="background-color: rgba(200, 200, 200, 0.5);">
+               </mark>
+                <h3 style="text-align:center;margin-top:-3%;position:absolute" class="col-9" >
+                   {{ content.title }}
+                </h3>
+                <h5 style="float:right" class="col-2">
+                    {{ content.date }}
+                </h5>
+                <br><br>
+                <p id="content_{{ content.id }}" style="visibility:hidden;color:black;white-space: pre-wrap; overflow-wrap: break-word">
+                    {{ content.content }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script type='text/javascript' src="{% static '/js/sudo.js' %}">
+</script>

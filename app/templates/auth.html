@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" content="width=device-width">
+        <title>
+            FJKM CENHOSOA - FIDIRANA
+        </title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body style="background-image: url({% static 'images/mR.jpeg' %})">
+        <input type="hidden" id="url_id" value="content">
+        <div class="container-fluid" id="content">
+            <div class="row justify-content-center mt-5 ">
+                <h1>
+                    FIDIRANA
+                </h1>
+            </div>
+            <div class="row justify-content-center mt-5">
+                <p style="color:white">
+                    {{ error_msg }}
+                </p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-10 p-5 pl-5 rounded mb-5" style="background-color:rgba(200, 0, 0, 0.2); width:100%">
+
+                        <form method="POST" action="{% url 'auth' %}" style="text-align:center">
+                            {% csrf_token %}
+                            {{ form.tel }}
+                            <br>
+                            <br>
+                            {{ form.password }}
+                            <br>
+                            <br>
+                            <input type="submit" value="OK" class="btn" style="width: 200px;border:1px solid black">
+                            <br><br>
+                            <a href="{% url 'register' %}">
+                                Hanokatra Kaonty
+                            </a>
+                        </form>
+
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

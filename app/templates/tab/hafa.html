@@ -1,0 +1,55 @@
+{% load static %}
+<input id="url_id" type="hidden" value="tab">
+<input id="url" type="hidden" value="hafa">
+<script type='text/javascript' src="{% static '/js/main.js' %}"></script>
+
+
+
+<div id="filankevitra" class="container-fluid justify-content-center" style="background-color: rgba(0, 0, 250, 0.4);height:auto; animation-name:appear;animation-duration:2s" >
+    <div class="row justify-content-center" style="padding-top:2%">
+        MOMBAMOMBA
+    </div>
+    <div class="row" style="padding-top:2%">
+        <div class="col-3 scroll-tab" style="text-align:center"
+             onclick="goto('about', 'Tranonkala', null, 'content-context')">
+            Tranonkala
+            <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+        </div>
+        <div class="col-2 scroll-tab" onclick="goto('about', 'fifandraisa', null, 'content-context')">
+            Fifandraisana
+            <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+        </div>
+        <div class="col-2 scroll-tab" onclick="goto('fiangonana', 'mombamomba', null, 'content-context')">
+            Mombamomba
+            <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+        </div>
+        <div class="col-2 scroll-tab" onclick="goto('fiangonana', 'ambaratonga', null, 'content-context')">
+            Ambaratonga
+            <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+        </div>
+        {% if superuser is True %}
+        <div class="col-3 scroll-tab" style="text-align:center" onclick="goto('about', 'boite_a_idee', null, 'content-context')">
+            Boîte à Idée
+            <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+        </div>
+        {% else %}
+        <div class="col-2 scroll-tab" style="text-align:center" onclick="goto('about', 'superuser', null, 'content-context')">
+            SuperUser
+            <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+        </div>
+        <div class="col-1 scroll-tab" style="text-align:center" onclick="goto('about', 'hiala', null, 'content-context')">
+            Hiala
+            <img src="{% static 'images/tab/play.png' %}" class="scroll-img">
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+
+<input type="hidden" id="view_sudo" value="{{ view }}">
+<input type="hidden" id="id_sudo" value="{{ sudo.id }}">
+<section id="content-context">
+
+</section>
+

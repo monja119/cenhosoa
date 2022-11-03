@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" content="width=device-width;">
+        <title id="title">
+            {{ title }}
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body  style="background-image:url({% static 'images/sky.jpg' %});" id="body">
+        <div style="text-align:center" class="loading-div" id="loading-div">
+                <img src="/app/static/images/pigeon.gif">
+                <br>
+                <h4 style="color: white;font-family:helvetica">
+                    Loading...
+                </h4>
+        </div>
+        <header style="background-color:rgba(200,200,200,0.2)">
+            <div class="container-fluid">
+                <div class="row " id="homepage"  style="background-image:url({% static 'images/R.jpeg' %});">
+                        {{ litorjia.teny_fanolorana }}
+                </div>
+                <div class="row mt-5" id="tab" style="background-color:none; height:75px">
+                    <a id='mofonaina/' class="col-3 pt-2 rounded tab" onclick="link('mofonaina/', 'MOFONAINA')" style="text-align:center;">
+                        <img src="{% static 'images/tab/chapelle.png' %}" style="width:40px;height:50px" alt="chapelle">
+                    </a>
+                    <a id="sampana/" onclick="link('sampana/', 'SAMPANA')" class="col-2 pt-2 rounded tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/branche.png' %}" style="width:50px;height:50px" alt="sampana">
+                    </a>
+                    <a id="vaovao/" onclick="link('vaovao/', 'VAOVAO')" class="col-2 pt-2 rounded tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/info.png' %}" style="width:50px;height:50px" alt="vaovao">
+                    </a>
+                    <a id="fiangonana/" onclick="link('fiangonana/', 'NY FIANGONANA')" class="col-2 pt-2 tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/eglise.png' %}" style="width:50px;height:50px" alt="rantsana">
+                    </a>
+                    <a id='hafa/' onclick="link('hafa/', 'HAFA')" class="col-3 pt-3 rounded tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/extra.png' %}" style="height:40px" alt="hafa">
+                    </a>
+                    <h5 class="col-2 pt-4">
+                                {{ user.full_name }}
+                    </h5>
+                </div>
+                <div class="row p-2">
+                    <form action="{% url 'hikaroka' %}" method='GET' style="width:100%">
+                        <div class="col-12" id="search">
+                            <input type="text" name="q" placeholder="Hikaroka" style="text-align:center;width:85%;border:1px solid white;background:none" class="rounded">
+                            <input type="submit" value="Karohina" class="btn" style="width:120px;margin-top:-5px;font-size:20px;background-color:{{ secondary_color }};">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </header>
+
+
+        <input id="user_id" type="hidden" value="{{ user.id }}">
+        <input id="response_title" type="hidden" value="{{ title }}">
+        <input id="view" type="hidden" value="{{ url }}">
+        <section id="content">
+
+        </section>
+
+
+        <footer id='footer' style="background-color:rgba(0,0,0,0.4);text-align:center;margin-bottom:-15px">
+
+            <p style="font-size:18px">
+                FJKM CENHOSOA @2022
+                <br>
+                <a href="{% url 'terms' %}">
+                    Termes &  Conditions
+                </a>
+                <br>
+                Application Web Créée par des Peaky Coders - Tout droit réservé
+            </p>
+        </footer>
+
+
+        <script type='text/javascript' src="{% static '/js/main.js' %}">
+        </script>
+
+
+    </body>
+
+</html>

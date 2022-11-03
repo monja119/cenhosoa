@@ -1,0 +1,79 @@
+<div class="container-fluid mt-5">
+
+{% if sudo_account is True %}
+    <div class="row justify-content-center mb-2">
+        <input type="button" onclick="popup('popup_asa')" value="Hanampy" class="btn" style="font-size:26px;background-color:{{ secondary_color }}">
+    </div>
+
+    <div id='popup_asa' class=" col-8 popup rounded" style="margin-top:-15.5%;height:99%;margin-left:16.5%;text-align:center">
+
+        <h2>
+            Fanampiana Vaovao - {{ name }}
+        </h2>
+        <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+            <input type="hidden" name="type" value="vaovao">
+            <br>
+            <input type="text" name="title" placeholder="Lohateny" style="text-align:center">
+
+            <select name="sokajy" style="border: 1px solid black;border:none;" class="rounded">
+                <option class="vaovao">
+                    <h3>
+                        Sokajy
+                    </h3>
+                </option>
+                <option class="vaovao">
+                    <h3>
+                        Filazana
+                    </h3>
+                </option>
+                <option class="vaovao">
+                    <h3>
+                        Fanasana
+                    </h3>
+                </option>
+            </select>
+            <br>
+            <br>
+            <textarea cols="50" rows="8" name="content" id="content">
+            </textarea>
+            <br>
+            <br>
+            <input type="button" value="Manafoana" onclick="manafoana('popup_asa')" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+            <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+        </form>
+        <br>
+        <br>
+    </div>
+{% endif %}
+
+    {% for content in vaovao %}
+        <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="voavao-content" id="{{ content.id }}"
+                      onclick="display_content('{{ content.id }}', 'content_{{ content.id }}')">
+                    <p>
+                        <h5 style="float:left">
+                            {{ content.sokajy|upper }}
+                        </h5>
+                        <h5 style="float:right">
+                            {{ content.date }}
+                        </h5>
+                    </p>
+
+                    <h2 style="text-align:center;overflow-wrap: break-word">
+                        {{ content.title }}
+                    </h2>
+
+                    <p style="visibility:hidden;white-space: pre-wrap; overflow-wrap: break-word" id="content_{{ content.id }}" >
+                        {{ content.content }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    {% endfor %}
+</div>

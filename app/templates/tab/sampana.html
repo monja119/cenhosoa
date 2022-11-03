@@ -1,0 +1,64 @@
+{% load static %}
+<input id="url_id" type="hidden" value="tab">
+<input id="url" type="hidden" value="sampana">
+
+<div class="container-fluid" id="content-sampana">
+    <div class="row justify-content-center; mt-5">
+        <div class="col-4 tab-sampana" onclick="link('sampana/dorkasy/', 'SAMPANA - DORKASY')"
+             style="background-image: url({% static 'images/sampana/dorkasy.jpg' %});" >
+            <div class="cover-sampana">
+                DORKASY
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/safif/', 'SAMPANA - SAFIF')" style="background-image: url({% static 'images/sampana/safif.jpeg' %});">
+            <div class="cover-sampana">
+                SAFIF
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/sampati/', 'SAMPANA - SAMPATI')" style="background-image: url({% static 'images/sampana/sampati.jpeg' %});">
+            <div class="cover-sampana">
+                SAMPATI
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center;">
+        <div class="col-4 tab-sampana" onclick="link('sampana/sa/', 'SAMPANA - SEKOLY ALAHADY')" style="background-image: url({% static 'images/sampana/sa.jpg' %});">
+            <div class="cover-sampana">
+                SEKOLY ALAHADY
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/slk/', 'SAMPANA - SLK')" style="background-image: url({% static 'images/sampana/slk.jpg' %});">
+            <div class="cover-sampana">
+                SLK
+            </div>
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/svm/', 'SAMPANA - SVM')" style="background-image: url({% static 'images/sampana/svm.jpg' %});">
+            <div class="cover-sampana">
+                SVM
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center; ">
+        <div class="col-1">
+        </div>
+        <div class="col-5 tab-sampana" onclick="link('sampana/stk/', 'SAMPANA - STK')" style="background-image: url({% static 'images/sampana/stk.jpg' %});">
+            <div class="cover-sampana">
+                STK
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col-4 tab-sampana" onclick="link('sampana/vfl/', 'SAMPANA - VFL')" style="background-image: url({% static 'images/sampana/vfl.jpg' %});">
+            <div class="cover-sampana">
+                VFL
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    </div>
+    <div class="row">
+    </div>
+</div>
+<script type='text/javascript' src="{% static '/js/main.js' %}">
+</script>

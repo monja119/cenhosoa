@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" content="width=device-width">
+        <title id="title">
+            Fikarohana - {{ query }}
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body style="background-image: url({% static 'images/R.jpeg' %})">
+        <header style="background-color:rgba(200,200,200,0.2)">
+            <div class="container-fluid pt-3">
+                <div class="row " style="background-color:none; height:75px">
+                    <a class="col-2 pt-2 rounded tab" onclick="link('chapelle/', 'MOFONAINA')" style="text-align:center;">
+                        <img src="{% static 'images/tab/chapelle.png' %}" style="width:40px;height:50px" alt="chapelle">
+                    </a>
+                    <a onclick="link('sampana/', 'SAMPANA')" class="col-2 pt-2 rounded tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/branche.png' %}" style="width:50px;height:50px" alt="sampana">
+                    </a>
+                    <a onclick="link('vaovao/', 'VAOVAO')" class="col-2 pt-2 rounded tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/info.png' %}" style="width:50px;height:50px" alt="vaovao">
+                    </a>
+                    <a onclick="link('rantsana/', 'RANTSANA')" class="col-2 pt-2 tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/eglise.png' %}" style="width:50px;height:50px" alt="rantsana">
+                    </a>
+                    <a onclick="link('hafa/', 'HAFA')" class="col-2 pt-3 rounded tab" style="text-align:center;">
+                        <img src="{% static 'images/tab/extra.png' %}" style="height:40px" alt="hafa">
+                    </a>
+                    <h5 class="col-2 pt-4">
+                                {{ user.full_name }}
+                    </h5>
+                </div>
+                <div class="row p-2">
+                    <form action="{% url 'hikaroka' %}" method='GET' style="width:100%">
+                        <div class="col-12">
+                            <input type="text" name="q" placeholder="Hikaroka" style="text-align:center;width:85%;border:1px solid white;background:none" class="rounded">
+                            <input type="submit" value="Karohina" class="btn" style="width:120px;margin-top:-5px;font-size:20px;background-color:{{ secondary_color }};">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </header>
+
+
+        <input id="response_title" type="hidden" value="{{ title }}">
+        <input id="view" type="hidden" value="{{ url }}">
+        <section id="content">
+            {{ query }}
+        </section>
+
+
+        <footer style="background-color:rgba(0,0,0,0.4);text-align:center;margin-bottom:-15px">
+            <a href="http://localhost:8000/hiala/?id={{ session }}" style="font-size:18px;color:{{ secondary_color }}">
+                Hiala
+            </a>
+            <p style="font-size:18px">
+                FJKM CENHOSOA @2022
+                <br>
+                <a href="{% url 'terms' %}">
+                    Termes &  Conditions
+                </a>
+                <br>
+                Application Web Créée par des Peaky Coders - Tout droit réservé
+            </p>
+        </footer>
+
+
+        <script type='text/javascript'>
+            var view = document.getElementById('view');
+            var response_title = document.getElementById('response_title');
+
+
+            // link
+            function link(link, response_title){
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onload = function() {
+                    var content =  document.getElementById("content");
+                    var title = document.getElementById('title');
+
+                    title.innerHTML = response_title;
+                    content.innerHTML = this.responseText;
+                };
+                xhttp.open("GET", "http://localhost:8000/" + link, true);
+              xhttp.send();
+            }
+
+
+        </script>
+
+        <script type='text/javascript'>
+
+
+        </script>
+    </body>
+
+</html>

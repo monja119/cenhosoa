@@ -1,0 +1,54 @@
+{% load static %}
+<div id='popup_fandaharana' class=" col-8 popup rounded" style="margin-top:-10.5%;height:99%;margin-left:16.5%;text-align:center">
+
+    <h2>
+        Fanampiana Asa - Fandaharana
+    </h2>
+    <form method="POST" action="{% url 'auth' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="sudo_name" value="{{ sudo_account.name }}">
+        <input type="hidden" name="type" value="fandaharana">
+        <br>
+        <input type="text" name="title" placeholder="Lohateny" style="text-align:center">
+        <br>
+        <br>
+        <textarea cols="50" rows="8" name="content" id="content" aria-multiline="true">
+        </textarea>
+        <br>
+        <br>
+        <input type="button" value="Manafoana" onclick="manafoana('popup_fandaharana')" class="rounded btn mr-1 mb-1" style="width:99px;height:50px;border:none">
+        <input type="submit" value="Manamafy" class="rounded btn-success" style="width:150px;cursor:pointer;height:50px;border:none">
+
+    </form>
+    <br>
+    <br>
+</div>
+
+{% if pasteur is True %}
+     <div class="col-1 rounded-circrle bg-primary;">
+        <a onclick="popup('popup_fandaharana')" style="cursor: pointer;">
+            <img src="{% static 'images/tab/plus.png' %}" class="rounded-circle"
+                 style="background:{{ secondary_color }};padding:10px;margin-top:15%;width:50px;height:50px;"
+                 alt="Créér un article">
+        </a>
+    </div>
+{% endif %}
+<div class="container-fluid">
+    {% for content in fandaharana %}
+        <div class="row p-4 mt-1 rounded fandaharana" id="content_fandahrana" style="background-color; min-height:175px;color:black">
+            <div class="col-2"></div>
+            <div class="col-8 rounded" style="border: 1px solid black;background-color: white;white-space: pre-wrap; overflow-wrap: break-word">
+               {{ content.content }}
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row justify-content-center">
+            <a id="return_download_{{ content.id }}">
+                <input onclick="downloader('fandaharana', '{{ content.id }}', 'return_download_{{ content.id }}')" type="button" class="btn rounded" value="Halaina" style="width:100px;background-color:{{ secondary_color }}">
+            </a>
+        </div>
+    {% endfor %}
+
+</div>
+<script type='text/javascript' src="{% static '/js/sudo.js' %}">
+</script>
